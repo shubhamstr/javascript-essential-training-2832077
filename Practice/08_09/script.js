@@ -37,23 +37,41 @@ const frogpack = {
 const content = `
     <h1 class="backpack__name">${frogpack.name}</h1>
     <ul class="backpack__features">
-      <li class="packprop backpack__volume">Volume:<span> ${
-        frogpack.volume
-      }l</span></li>
-      <li class="packprop backpack__color">Color:<span> ${
-        frogpack.color
-      }</span></li>
-      <li class="packprop backpack__pockets">Number of pockets:<span> ${
-        frogpack.pocketNum
-      }</span></li>
-      <li class="packprop backpack__strap">Left strap length:<span> ${
-        frogpack.strapLength.left
-      } inches</span></li>
-      <li class="packprop backpack__strap">Right strap length:<span> ${
-        frogpack.strapLength.right
-      } inches</span></li>
-      <li class="feature backpack__lid">Lid status:<span> ${
-        frogpack.lidOpen ? "open" : "closed"
-      }</span></li>
+      <li class="packprop backpack__volume">Volume:<span> ${frogpack.volume
+  }l</span></li>
+      <li class="packprop backpack__color">Color:<span> ${frogpack.color
+  }</span></li>
+      <li class="packprop backpack__pockets">Number of pockets:<span> ${frogpack.pocketNum
+  }</span></li>
+      <li class="packprop backpack__strap">Left strap length:<span> ${frogpack.strapLength.left
+  } inches</span></li>
+      <li class="packprop backpack__strap">Right strap length:<span> ${frogpack.strapLength.right
+  } inches</span></li>
+      <li class="feature backpack__lid">Lid status:<span> ${frogpack.lidOpen ? "open" : "closed"
+  }</span></li>
     </ul>  
 `;
+
+const createFigure = () => {
+  const figure = document.createElement("figure");
+  const img = document.createElement("img");
+  img.setAttribute("src", frogpack.image);
+  img.setAttribute("alt", frogpack.name);
+  const figcaption = document.createElement("figcaption");
+  figcaption.textContent = frogpack.name;
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
+  return figure;
+}
+
+
+const createArticle = () => {
+  const article = document.createElement("article");
+  article.classList.add("backpack");
+  article.innerHTML = content;
+  article.appendChild(createFigure());
+  return article;
+}
+
+
+document.querySelector("main").appendChild(createArticle());
