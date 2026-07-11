@@ -4,6 +4,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: hsl(0, 0%, 98%);
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: hsl(220, 20%, 12%);
 }
 
 .grid {
@@ -14,6 +20,11 @@ body {
   gap: 1rem;
   list-style-type: none;
   border-radius: 0.5rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.grid-highlight {
+  box-shadow: 0 0 0 0.5rem hsl(200, 90%, 65%);
 }
 
 .cell {
@@ -21,4 +32,12 @@ body {
   width: 6rem;
   height: 6rem;
   background-color: hsl(0, 0%, 90%);
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cell-highlight,
+.cell:hover {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0 0 0.3rem rgba(59, 130, 246, 0.35);
 }
